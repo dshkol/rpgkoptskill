@@ -1,0 +1,4 @@
+interface:
+  display_name: "R Package Optimizer"
+  short_description: "Profile, optimize, and report R performance"
+  default_prompt: "Use $r-pkg-optimizer to profile this R package, implement justified optimizations, and report reproducible before/after results."
