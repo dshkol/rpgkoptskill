@@ -134,6 +134,9 @@ to a trustworthy boundary only when the same contract remains enforced.
 Compare complete objects and conditions, including classes, attributes, names,
 row and column order, grouping, geometry, factors, time zones, missing values,
 numeric tolerances, mutation, files, cache invalidation, warnings, and errors.
+When a public contract accepts an S3 parent class, include representative
+subclasses and adversarial methods in the compatibility matrix; `data.frame`
+subclasses can change extraction, subsetting, assignment, copying, and mutation.
 
 Test zero, singleton, typical, large, missing, duplicated, unsorted, malformed,
 and structurally irregular cases as relevant. Benchmark the same fixture and
@@ -143,6 +146,12 @@ to drive scaling; do not publish a universal multiplier from one input.
 Run focused tests while iterating, then the complete tests and package check.
 Keep unstable timing assertions out of `R CMD check`; test invariants and use
 separate benchmark scripts for performance evidence.
+
+After a candidate clears its success threshold, profile the improved public
+workflow again. Look for a cheap residual hotspot exposed by removal of the
+first bottleneck, especially scalar dispatch, coercion, validation, or
+serialization. Stop when the next measured gain would not pay its complexity
+bill; do not stop merely because the first candidate was successful.
 
 ### 8. Report the result honestly
 
@@ -154,6 +163,13 @@ startup, or another metric; do not substitute one for another.
 Check benchmark artifacts into `benchmarks/` when the claim should be
 reproducible, and add that directory to `.Rbuildignore`. Re-render committed
 performance articles when their numbers change.
+
+Treat review as an evidence loop: verify each proposed finding, distinguish
+correctness blockers from optional optimizations and quality nits, implement
+only supported changes, rerun semantic checks and matched benchmarks, and
+review the new diff for regressions. Reject suggestions that duplicate
+orchestration or broaden maintenance surface for an immaterial constant-factor
+gain, and record the reason.
 
 When giving review feedback or drafting an issue or PR, connect every claim to
 a reproducible workload and separate observation from inference. Include the

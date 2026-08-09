@@ -52,6 +52,9 @@ locate the cost. A microbenchmark answers only a narrow mechanistic question.
   timings separately.
 - Account for GC and allocations. Faster code that doubles peak memory may be a
   regression for the target workload.
+- Control result lifetime as well as GC. Remove the previous large result,
+  then force collection outside the next timed expression; otherwise retained
+  outputs can distort later allocation pressure and timings.
 - Avoid accidental mutation between iterations. `data.table` and environments
   need fresh inputs or a deliberate copy policy.
 - Control multithreaded libraries. Record `data.table::getDTthreads()` and BLAS
@@ -76,6 +79,12 @@ library(pkg, lib.loc = "/tmp/baseline-lib")
 # of every result object as the baseline. Then run the development tree on
 # identical inputs and compare component by component.
 ```
+
+Make isolation fail closed. Confirm the package was installed under the
+requested library, load it with `lib.loc`, and verify the namespace or
+`find.package()` path before measuring. Do not merely prepend or append an
+isolated directory to `.libPaths()` and allow an ambient installation to
+silently satisfy the load.
 
 Run identical cases and save:
 
@@ -159,6 +168,11 @@ improvement on the target workload without unacceptable regressions elsewhere.
 If it does not, revert the candidate or present it explicitly as an unsuccessful
 experiment. Never round noise into a positive claim or report only the best
 input. Include neutral and regressed cases.
+
+After every implementation or review commit that touches the measured path,
+rerun the matched benchmark and refresh checked-in tables, plots, and prose.
+Conservative numbers are not exempt: stale evidence no longer describes the
+diff under review.
 
 ## Package integration
 
