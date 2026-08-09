@@ -120,6 +120,12 @@ Do not request a rewrite from visual inspection alone. If a PR claims improved
 performance but supplies no comparable benchmark, request a reproducible
 before/after result rather than guessing whether the code is faster.
 
+After an accepted optimization, re-profile the complete workflow once. The
+first win can expose a formerly secondary hotspot; pursue it only when the
+remaining absolute cost and implementation complexity justify another change.
+During iterative review, re-check comments against the latest commit and rerun
+the benchmark whenever a fix changes the measured path.
+
 ## Raise a performance issue
 
 An issue may report a confirmed bottleneck before a fix exists. Include:

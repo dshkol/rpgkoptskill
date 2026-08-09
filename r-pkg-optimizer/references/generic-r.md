@@ -117,6 +117,11 @@ Two recurring hypotheses are worth testing:
   machinery is unnecessary (scalar parameter, already-sorted input,
   no-missing-values input). Keep the general path as the fallback and test
   both against each other.
+- Do not equate `is.data.frame(x)` with base data-frame dispatch. Tibbles,
+  `data.table`, and custom subclasses can redefine `[`, assignment, and other
+  methods. Use the narrowest operation whose semantics the fast path needs
+  (for example `x[[name]]` for one column), and test a hostile subclass before
+  claiming compatibility.
 - When the same derived object is recomputed within a session, cache it in a
   package-level environment. See [io-caching.md](io-caching.md) for the
   layered-cache contract — including why a disk cache is not a fast cache and
