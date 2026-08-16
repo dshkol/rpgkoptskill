@@ -19,6 +19,8 @@ When activated, this skill helps an agent with:
   harnesses against installed baselines
 - Deciding when a native backend is justified — and flagging it with evidence
   rather than implementing it uninvited
+- Preserving an evidence-linked history of external recommendations, outcomes,
+  negative results, and reusable cross-package lessons
 
 ## Design principles
 
@@ -79,6 +81,15 @@ For Codex, copy the same directory into `$CODEX_HOME/skills/` (or
 - `numerical-parallel.md` — matrix/statistical workloads and the parallelism
   gate
 - `sources.md` — authoritative external references and further reading
+- `recommendation-history.md` — portfolio ledger protocol, lifecycle states,
+  outcome evidence, and learning capture
+
+### Recommendation Ledger (`recommendations/`)
+
+- `index.md` — compact cross-package recommendation index
+- `records/_template.md` — one-record-per-recommendation evidence template
+- `artifacts/<recommendation-id>/` — reusable benchmark harnesses and safe,
+  compact fixtures when available
 
 ## Usage
 
