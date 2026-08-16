@@ -63,12 +63,25 @@ Separate three kinds of learning:
 State observations separately from interpretations. Do not generalize from one
 package without naming the conditions that made the lesson true.
 
+## Promote learnings selectively
+
+Do not turn every recommendation into skill guidance. Promote a learning only
+when it generalizes beyond the investigated package, changes a future decision
+or search strategy, adds something not already covered, and earns its context
+and maintenance cost. Prefer a short addition to the relevant architecture
+reference over expanding the core workflow. Leave package-specific evidence,
+examples of existing principles, and uncertain generalizations in the ledger.
+
 ## Keep records safe and current
 
 - Store the log in an explicitly designated portfolio repository, separate
   from the external package under review. In this skill's source repository,
   use `recommendations/index.md`, `recommendations/records/`, and
   `recommendations/artifacts/<recommendation-id>/`.
+- Preserve reusable benchmark harnesses and small non-sensitive fixtures with
+  the portfolio record when upstream ownership would make a focused
+  contribution unnecessarily large. Otherwise record why they are unavailable
+  and leave exact reproduction instructions.
 - Link reproducible public artifacts when possible. Do not commit credentials,
   private correspondence, proprietary fixtures, or machine-specific paths.
 - Record `unknown` when an outcome has not been checked; do not convert missing

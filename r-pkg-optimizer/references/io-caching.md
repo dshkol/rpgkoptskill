@@ -17,6 +17,15 @@ the stage users actually wait for.
   overhead and output ordering in the contract.
 - Reuse connections and prepared state only where lifecycle and fork safety are
   understood.
+- For metadata-only reads of remote structured files, test storage- and
+  format-native random access before downloading complete objects or
+  implementing range parsing. Instrument bytes or requests to verify that the
+  apparent random-access API does not silently materialize the full object,
+  and retain a portable fallback when support is optional.
+- For paginated APIs, inspect `pages`, `total`, cursors, and completion tokens
+  before optimizing local R work. Instrument request count, test real one- and
+  multi-page response shapes plus missing or malformed metadata, and retain a
+  bounded fallback when termination metadata cannot be trusted.
 
 ## Layered caching
 
