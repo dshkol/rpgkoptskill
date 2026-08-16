@@ -161,6 +161,20 @@ profile attribution, before/after results when a candidate exists, semantic
 validation, trade-offs, and exact reproduction command. Do not post a review,
 open an issue, or create a PR unless the user authorized that external action.
 
+### 9. Preserve recommendation history
+
+When an investigation produces a recommendation for an external package, read
+[recommendation-history.md](references/recommendation-history.md). Check for an
+existing record before creating one, distinguish a private draft from feedback
+actually sent to maintainers, and update the same record when the package or
+maintainers respond.
+
+Capture the evidence, outcome, negative results, and transferable learning.
+Use an explicitly designated portfolio ledger; do not add bookkeeping files to
+the package under review or contact maintainers merely to complete the record.
+If no writable ledger is available, return a ready-to-file record with the
+work product instead of silently losing the history.
+
 ## Architecture routing
 
 Read only the references matching the package and measured bottleneck:
