@@ -3,7 +3,7 @@
 A reusable agent skill for profiling, optimizing, and validating performance in
 existing R packages — while preserving each package's public API, semantics,
 dependency posture, and chosen implementation style. Companion to
-[rpkgdevskill](../rpkgdevskill), which covers general R package development.
+[rpkgdevskill](https://github.com/dshkol/rpkgdevskill), which covers general R package development.
 
 ## What This Skill Does
 
