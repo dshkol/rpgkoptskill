@@ -9,11 +9,19 @@ behavior and benchmark validity.
 - Use keyed joins, secondary indices, and `on=` joins when repeated lookup or
   merge patterns justify them. Measure index construction separately from
   indexed queries.
-- Keep `j` expressions in the shapes GForce can optimize (`mean`, `sum`,
+- Match the join primitive to the relationship: non-equi `on=` joins for
+  inequalities, `roll=` for ordered nearest or last/next-observation matches,
+  and `foverlaps()` for intervals. When the result is an aggregate per row of
+  `i`, use `by = .EACHI` rather than materializing a join and grouping it again.
+- Keep `j` expressions in shapes GForce can optimize (`.N`, `mean`, `sum`,
   `min`, `max`, `first`, `last`, and friends applied directly to columns).
-  Wrapping them in anonymous functions or arithmetic silently drops to the
-  general evaluator; run with `options(datatable.verbose = TRUE)` to confirm
-  GForce actually fired on the hot grouped query.
+  Optimization coverage changes across `data.table` versions, so do not
+  fossilize the current expression whitelist: use `verbose = TRUE` to confirm
+  the hot query is optimized on the package's minimum and tested versions.
+- When only a filtered row count is needed, prefer `DT[i, .N]` to
+  `nrow(DT[i])`; the latter materializes the subset merely to count it.
+- Use `rowid()` for occurrence numbers within groups and `rleid()` for IDs of
+  consecutive runs instead of constructing those groupings manually.
 - Use `:=` for ordinary by-reference column updates. Inside a proven hot loop,
   consider `set()` to avoid repeated `[.data.table` dispatch.
 - Inside hot loops, consider `setDT()` or `as.data.table()` on valid lists rather

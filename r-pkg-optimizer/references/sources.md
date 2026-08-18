@@ -31,8 +31,13 @@ timings in any source as workload-specific evidence, not reusable constants.
 
 ## Architecture-specific documentation
 
-- `data.table`, [Benchmarking data.table](https://rdatatable.gitlab.io/data.table/articles/datatable-benchmarking.html):
-  cache, index, reference-semantics, thread, and mutation benchmark traps.
+- `data.table`, [Benchmarking data.table](https://cran.r-project.org/web/packages/data.table/vignettes/datatable-benchmarking.html),
+  [optimisations](https://rdatatable.gitlab.io/data.table/reference/datatable-optimize.html),
+  [joins](https://rdatatable.gitlab.io/data.table/articles/datatable-joins.html),
+  [`rowid()`](https://rdatatable.gitlab.io/data.table/reference/rowid.html), and
+  [`rleid()`](https://rdatatable.gitlab.io/data.table/reference/rleid.html):
+  benchmark traps, optimized query shapes, specialized joins, and group/run
+  identifiers.
 - `sf`, [geometric binary predicates](https://r-spatial.github.io/sf/reference/geos_binary_pred.html):
   spatial indices, prepared geometries, sparse output, and backend behavior.
 - `rextendr`, [Using Rust code in R packages](https://extendr.github.io/rextendr/articles/package.html):
