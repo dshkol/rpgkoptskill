@@ -2,6 +2,7 @@
 id: 2026-08-16-vincentarelbundock-wdi-pagination-metadata
 package: WDI
 repository: https://github.com/vincentarelbundock/WDI
+model: gpt-5.6-sol-high
 status: sent
 drafted: 2026-08-16
 sent: 2026-08-16

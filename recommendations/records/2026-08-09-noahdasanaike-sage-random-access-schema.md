@@ -2,6 +2,7 @@
 id: 2026-08-09-noahdasanaike-sage-random-access-schema
 package: sage
 repository: https://github.com/noahdasanaike/sage
+model: gpt-5.6-sol-high
 status: implemented
 drafted: 2026-08-09
 sent: 2026-08-09

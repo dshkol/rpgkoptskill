@@ -2,6 +2,7 @@
 id: YYYY-MM-DD-owner-repository-slug
 package: package-name
 repository: https://github.com/owner/repository
+model: model-name-or-none
 status: draft
 drafted: YYYY-MM-DD
 sent: unknown

@@ -25,6 +25,7 @@ investigation or in the learning section of a related record.
 Use a stable ID of the form `YYYY-MM-DD-owner-repository-slug` and record:
 
 - package and repository;
+- model used to produce the recommendation, or `none` for work without a model;
 - affected public workflow and versions or commits investigated;
 - exact recommendation and its compatibility boundary;
 - observed evidence, reproduction command, and durable artifact links;
