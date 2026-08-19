@@ -1,8 +1,10 @@
 # data.table packages
 
-Preserve `data.table`'s reference semantics and established syntax. Mutation,
-keys, secondary indices, automatic optimization, and threads affect both
-behavior and benchmark validity.
+Preserve `data.table`'s reference semantics and established syntax, but do not
+force every hot operation through `[.data.table`; a base vector operation may
+better fit sorted or otherwise structured data. Mutation, keys, secondary
+indices, automatic optimization, and threads affect both behavior and
+benchmark validity.
 
 ## Optimize within the model
 
@@ -34,6 +36,11 @@ behavior and benchmark validity.
   boundary that requires isolation.
 - Batch groups and joins where repeated setup dominates, but do not replace an
   idiomatic fast grouped expression without evidence.
+- For a complex grouped calculation, check whether ordering by the group key
+  enables a whole-vector algorithm with operations such as `rle()`, `cumsum()`,
+  `diff()`, or `findInterval()` instead of evaluating R code once per group.
+  Include sorting in the benchmark, reuse computed group boundaries, and
+  validate numerical precision plus `NA`, `NaN`, and infinite values.
 
 ## API-boundary ownership
 

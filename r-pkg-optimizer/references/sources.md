@@ -38,6 +38,10 @@ timings in any source as workload-specific evidence, not reusable constants.
   [`rleid()`](https://rdatatable.gitlab.io/data.table/reference/rleid.html):
   benchmark traps, optimized query shapes, specialized joins, and group/run
   identifiers.
+- Brodie Gaslam, [Hydra Chronicles, Part II: Beating data.table At Its Own
+  Game](https://www.brodieg.com/2019/06/10/base-vs-data-table/): how ordering can
+  enable whole-vector grouped algorithms, why reusable group-boundary work
+  matters, and how numerical precision can invalidate an apparent speedup.
 - `sf`, [geometric binary predicates](https://r-spatial.github.io/sf/reference/geos_binary_pred.html):
   spatial indices, prepared geometries, sparse output, and backend behavior.
 - `rextendr`, [Using Rust code in R packages](https://extendr.github.io/rextendr/articles/package.html):
